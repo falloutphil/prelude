@@ -31,7 +31,7 @@
              (list (regexp-quote "/ssh:username@ssh.strato.de:")
                    "remote-shell" "/bin/bash"))
 (add-to-list 'tramp-connection-properties
-             (list (regexp-quote "/su:username@ssh.strato.de:")
+             (list (regexp-quote "/ssh:username@ssh.strato.de:")
                    "remote-shell-login" '("-")))
 
 
