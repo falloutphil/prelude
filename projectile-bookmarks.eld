@@ -1,0 +1,1 @@
+("~/org/mandarin/" "~/install/emacs/prelude/")

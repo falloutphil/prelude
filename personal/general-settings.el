@@ -18,7 +18,7 @@
                          "[EXTRA]\n")
                 ("\\section{%s}" . "\\section*{%s}")
                 ("\\subsection{%s}" . "\\subsection*{%s}")
-                ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))))
+                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")))
 
 (setq org-latex-listings t)
 
