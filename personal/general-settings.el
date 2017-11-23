@@ -71,5 +71,9 @@
 ;; Workgroups for layout management
 (workgroups-mode 1)
 
+;; Stop prelude closing brackets and quotes
+(smartparens-mode 0)
+(add-hook 'prelude-prog-mode-hook (lambda () (smartparens-mode -1)) t)
+
 ;; Key-chord to add commas to numbers
 (key-chord-define-global ",," 'commify-toggle)
