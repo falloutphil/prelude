@@ -77,3 +77,8 @@
 
 ;; Key-chord to add commas to numbers
 (key-chord-define-global ",," 'commify-toggle)
+
+;; Set ipython as default python interpreter
+(require 'python)
+(setq python-shell-interpreter "ipython")
+(setq python-shell-interpreter-args "--simple-prompt")
