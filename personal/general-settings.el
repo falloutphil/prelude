@@ -7,6 +7,10 @@
 (setq cnfonts-profiles
       '("program" "org-mode" "read-book"))
 
+(require 'google-translate-smooth-ui)
+(key-chord-define-global "^^" 'google-translate-smooth-translate)
+(setq google-translate-translation-directions-alist
+      '(("zh-CN" . "en")("en" . "zh-CN")))
 
 ;; update the list of LaTeX classes and associated header (encoding, etc.)
 ;; and structure
@@ -77,3 +81,8 @@
 
 ;; Key-chord to add commas to numbers
 (key-chord-define-global ",," 'commify-toggle)
+
+;; Set ipython as default python interpreter
+(require 'python)
+(setq python-shell-interpreter "ipython")
+(setq python-shell-interpreter-args "--simple-prompt")
