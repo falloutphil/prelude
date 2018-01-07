@@ -1,5 +1,16 @@
 ;; Personal Macros to go here
 
+;; This isn't a macro but defines original M-x (hijacked by smex)
+;; as C-x M-x so that it can still be used to edit saved keyboard
+;; macros using C-x C-k e C-x M-x <macro name>
+;;
+;; This is created by running
+;; M-x global-set-key C-x M-x RET execute-extended-command RET
+;; And immediately afterwards
+;; C-x ESC ESC C-a C-k C-g
+;; And then yank it from the kill ring with C-y
+(global-set-key [24 134217848] (quote execute-extended-command))
+
 (fset 'pandas
    (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ("#+NAME: TBL	OA	>#+BEGIN_SRC python :preamble \"# -*- coding: utf-8 -*-\" :results raw :var tbl=TBL :colnames noimport orgtools as otdf = ot.org2df(tbl)return ot.df2org(df)#+END_SRCOAOAy" 0 "%d")) arg)))
 
