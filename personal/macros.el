@@ -11,6 +11,27 @@
 ;; And then yank it from the kill ring with C-y
 (global-set-key [24 134217848] (quote execute-extended-command))
 
+;; This also isn't a macro - it's a hack required until emacs27
+;; to allow you to insert an edited, named, keyboard macro
+;; https://emacs.stackexchange.com/questions/37065/editing-a-stored-keyboard-macro-and-storing-the-edited-version
+(defun my-kmacro-hack (&rest _)
+  (interactive
+   (list (intern (completing-read
+                  "Insert kbd macro (name): "
+                  obarray
+                  (lambda (elt)
+                    (and (fboundp elt)
+                         (or (stringp (symbol-function elt))
+                             (vectorp (symbol-function elt))
+                             (kmacro-extract-lambda (symbol-function elt)))))
+                  t))
+         current-prefix-arg))
+  nil)
+(advice-add 'insert-kbd-macro :before #'my-kmacro-hack)
+
+
+;; Now for my Macros!
+
 (fset 'pandas
    (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ("#+NAME: TBL	OA	>#+BEGIN_SRC python :preamble \"# -*- coding: utf-8 -*-\" :results raw :var tbl=TBL :colnames noimport orgtools as otdf = ot.org2df(tbl)return ot.df2org(df)#+END_SRCOAOAy" 0 "%d")) arg)))
 
