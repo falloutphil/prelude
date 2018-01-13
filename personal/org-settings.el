@@ -16,3 +16,10 @@
 (add-hook 'org-shiftright-final-hook 'windmove-right)
 
 (require 'org-drill)
+
+(require 'org-jira)
+(setq jiralib-url "https://quantile.atlassian.net")
+;; Prelude/Projectile interfere with org-jiras keys (C-c i etc) with imenu
+(add-hook 'org-jira-mode-hook '(lambda() (setq prelude-mode nil)))
+;; Global replacement for C-c ig that works in Prelude
+(key-chord-define-global "qq" 'org-jira-get-issues)
