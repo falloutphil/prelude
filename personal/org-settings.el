@@ -16,6 +16,7 @@
 (add-hook 'org-shiftright-final-hook 'windmove-right)
 
 (require 'org-drill)
+(setq org-drill-save-buffers-after-drill-sessions-p nil)
 
 (require 'org-jira)
 (setq jiralib-url "https://quantile.atlassian.net")
