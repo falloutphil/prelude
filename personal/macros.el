@@ -7,7 +7,7 @@
 ;; This is created by running
 ;; M-x global-set-key C-x M-x RET execute-extended-command RET
 ;; And immediately afterwards
-;; C-x ESC ESC C-a C-k C-g
+;; C-x ESC ESC C-a C-k C-g,
 ;; And then yank it from the kill ring with C-y
 (global-set-key [24 134217848] (quote execute-extended-command))
 
